@@ -1,0 +1,12 @@
+language: minimal
+
+services:
+  - docker
+
+env:
+  - RELEASEVER=2.0
+  - RELEASEVER=3.0
+
+script:
+  - docker build -t photonrepos:${RELEASEVER} -f ci/Dockerfile.${RELEASEVER} .
+  - docker run --rm -it -e RELEASEVER photonrepos:${RELEASEVER} /repo_check.sh

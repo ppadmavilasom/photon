@@ -1,0 +1,7 @@
+FROM photon:3.0
+
+MAINTAINER ppadmavilasom@vmware.com
+
+COPY repo_check.sh /
+
+CMD ["/bin/bash"]
